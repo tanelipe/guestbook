@@ -4,7 +4,8 @@ const GuestbookEntry = require("../models/GuestbookEntry")
 module.exports = {
     addEntry: (request, response, next) => {
         let { text, guest } = request.body
-        new GuestbookEntry({text, guest}).save((error, entry) => {
+        let createdAt = new Date()
+        new GuestbookEntry({text, guest, createdAt}).save((error, entry) => {
             if(error) {
                 response.send(error);
             } else if(!entry) {
