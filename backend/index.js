@@ -1,12 +1,29 @@
-var express = require("express")
-var http = require("http")
-var app = express()
-var server = http.createServer(app)
+const express = require("express")
+const bodyParser = require("body-parser")
+const helmet = require("helmet")
+const http = require("http")
+const mongoose = require("mongoose")
 
-app.get("/", (request, response) => {
-    response.send("Hello World");
-})
+const routes = require("./routes/")
 
-app.use("/api/guestbook", require("./api/guestbook.js"))
+const mongodb_url = process.env.MONGODB_URI || "mongodb://localhost:27017/guestbook"
+
+const app = express()
+const router = express.Router()
+const server = http.createServer(app)
+
+try {
+    mongoose.connect(mongodb_url, {
+
+    });
+} catch(error) {
+    console.log(`${error}`)
+}
+// Setup the routes
+routes(router)
+
+app.use(helmet())
+app.use(bodyParser.json())
+app.use("/api", router)
 
 server.listen(8080);

@@ -9,7 +9,9 @@
   "author": "Taneli Peltoniemi",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "helmet": "^3.12.1",
     "http": "0.0.0",
     "mongoose": "^5.1.4"
   }
