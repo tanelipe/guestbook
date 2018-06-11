@@ -26,7 +26,7 @@ class GuestbookForm extends Component {
 
                     <FormGroup>
                         <Col smOffset={2} sm={10}>
-                            <Button type="submit">SUBMIT</Button>
+                            <Button className="btn btn-primary" type="submit">SUBMIT</Button>
                         </Col>
                     </FormGroup>
                 </Form>
