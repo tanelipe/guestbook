@@ -2,16 +2,41 @@ import React, { Component } from 'react';
 import { Form, FormGroup, Col, FormControl, ControlLabel, Button } from 'react-bootstrap';
 
 class GuestbookForm extends Component {
+    constructor(props) {
+        super(props)
+        
+        this.state = {
+            name: "",
+            entry: ""
+        }
+
+        this.handleInputChanged = this.handleInputChanged.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    
+    handleInputChanged(event) {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+
+        this.setState({
+            [name]: value
+        });
+    }
+    handleSubmit(event) {
+        event.preventDefault();
+    }
+
     render() {
         return (
             <div className="GuestbookForm">
-                <Form horizontal>
+                <Form horizontal onSubmit={this.handleSubmit}>
                     <FormGroup controlId="formHorizontalName">
                         <Col componentClass={ControlLabel} sm={2}>
                             Name
                         </Col>
                         <Col sm={10}>
-                            <FormControl type="text" placeholder="Name" />
+                            <FormControl type="text" placeholder="Name" name="name" onChange={this.handleInputChanged}/>
                         </Col>
                     </FormGroup>
 
@@ -20,7 +45,7 @@ class GuestbookForm extends Component {
                             Entry
                         </Col>
                         <Col sm={10}>  
-                            <FormControl componentClass="textarea" placeholder="Entry" />
+                            <FormControl componentClass="textarea" placeholder="Entry" name="entry" onChange={this.handleInputChanged} />
                         </Col>
                     </FormGroup>
 
