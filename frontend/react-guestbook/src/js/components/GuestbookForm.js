@@ -28,7 +28,15 @@ class GuestbookForm extends Component {
     }
     handleSubmit(event) {
         event.preventDefault();
-        addEntry.call(this, this.state.name, this.state.entry);
+        const target = event.target;
+        addEntry.call(this, this.state.name, this.state.entry, (err, data) => {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            // Clear the form fields
+            target.reset();
+        });
     }
 
     render() {
