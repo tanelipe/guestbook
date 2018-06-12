@@ -37,7 +37,7 @@ class GuestbookForm extends Component {
             // Clear the form fields
             target.reset();
 
-            this.props.entrySubmitted();
+            this.props.entrySubmitted(data);
         });
     }
 

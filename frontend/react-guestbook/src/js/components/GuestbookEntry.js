@@ -26,7 +26,7 @@ class GuestbookEntry extends Component {
                     </Col>
                 </Row>
                 <Row className="entry-text-row">
-                    <Col md={4}>
+                    <Col md={12}>
                         <p>—<em> "{this.props.text}"</em></p>
                     </Col>
                 </Row>
