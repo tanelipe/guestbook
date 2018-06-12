@@ -18,6 +18,7 @@ module.exports = {
     },
     getEntries: (request, response, next) => {
         GuestbookEntry.find(request.params.id)
+        .sort("-createdAt")
         .exec((error, entry) => {
             if(error) {
                 response.send(error)
