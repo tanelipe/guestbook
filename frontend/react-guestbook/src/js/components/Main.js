@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap'
 
 
@@ -9,26 +8,40 @@ import GuestbookEntries from "./GuestbookEntries"
 
 import "../../App.css"
 
-const Main = () => (
-    <div className="App">
-        <header className="App-header">
-            <h1 className="App-title">Guestbook</h1>
-        </header>
-        <Row>
-            { /* For some reason the mdOffset={4} doesn't work --> can't center */ }
-            <Col md={4}></Col>
-            <Col md={4}>
-                <GuestbookForm />
-            </Col>
-        </Row>
-        <Row>
-            { /* For some reason the mdOffset={4} doesn't work --> can't center */ }
-            <Col md={4}></Col>
-            <Col md={4}>
-                <GuestbookEntries />
-            </Col>
-        </Row>
+class Main extends Component {
+    constructor(props) {
+        super(props)
 
-    </div>    
-);
+        this.entrySubmitted = this.entrySubmitted.bind(this);
+    }
+
+    entrySubmitted() {
+        
+    }
+
+    render() {
+        return(
+            <div className="App">
+                <header className="App-header">
+                    <h1 className="App-title">Guestbook</h1>
+                </header>
+                <Row>
+                    { /* For some reason the mdOffset={4} doesn't work --> can't center */}
+                    <Col md={4}></Col>
+                    <Col md={4}>
+                        <GuestbookForm entrySubmitted={this.entrySubmitted} />
+                    </Col>
+                </Row>
+                <Row>
+                    { /* For some reason the mdOffset={4} doesn't work --> can't center */}
+                    <Col md={4}></Col>
+                    <Col md={4}>
+                        <GuestbookEntries />
+                    </Col>
+                </Row>
+
+            </div>
+        );
+    };
+}
 export default Main;
