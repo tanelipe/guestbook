@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Col, FormControl, ControlLabel, Button } from 'react-bootstrap';
 
+import { addEntry } from '../actions/GuestbookFormActions'
+
+
 class GuestbookForm extends Component {
     constructor(props) {
         super(props)
@@ -25,6 +28,7 @@ class GuestbookForm extends Component {
     }
     handleSubmit(event) {
         event.preventDefault();
+        addEntry.call(this, this.state.name, this.state.entry);
     }
 
     render() {
