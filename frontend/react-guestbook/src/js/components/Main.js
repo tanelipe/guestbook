@@ -47,14 +47,14 @@ class Main extends Component {
                 <header className="App-header">
                     <h1 className="App-title">Guestbook</h1>
                 </header>
-                <Row>
+                <Row className="guestbook-form">
                     { /* For some reason the mdOffset={4} doesn't work --> can't center */}
                     <Col md={4}></Col>
                     <Col md={4}>
                         <GuestbookForm entrySubmitted={this.entrySubmitted} />
                     </Col>
                 </Row>
-                <Row>
+                <Row className="guestbook-entries">
                     { /* For some reason the mdOffset={4} doesn't work --> can't center */}
                     <Col md={4}></Col>
                     <Col md={4}>

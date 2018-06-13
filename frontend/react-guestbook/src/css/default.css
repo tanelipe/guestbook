@@ -1,6 +1,16 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+  
 .entry {
     border-radius: 4px;
     border: 1px solid #80808040;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.guestbook-form {
+    margin-top: 10px;
 }

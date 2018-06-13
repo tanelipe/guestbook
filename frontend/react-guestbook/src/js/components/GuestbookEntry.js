@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Row, Col} from 'react-bootstrap'
 
-import "../../css/base.css"
+import "../../css/default.css"
 class GuestbookEntry extends Component {
    
     render() {
